@@ -120,3 +120,4 @@ Older CSS kept for compatibility during cleanup lives in `src/styles/legacy`.
 - Built with React Router and Vite.
 - Responsive layout with mobile navigation.
 - Production build outputs to `dist/`.
+- updated after connecting Vercel to GitHub.
