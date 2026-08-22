@@ -1,105 +1,133 @@
-/*=========================================================
-              HOME COURSES SECTION
-=========================================================*/
+/* =========================================================
+   CORE EDGE ACADEMY
+   COURSES SECTION - FULLY RESPONSIVE
+========================================================= */
 
 .home-courses {
     position: relative;
+
     width: 100%;
-    padding: 90px 6%;
+
+    padding: 100px 6%;
+
     box-sizing: border-box;
+
+    overflow: hidden;
 }
 
-/*=========================================================
-                    SECTION HEADER
-=========================================================*/
+/* =========================================================
+   SECTION HEADER
+========================================================= */
 
 .home-course-head {
-    width: 100%;
-    max-width: 850px;
+    width: min(100%, 760px);
+
     margin: 0 auto 60px;
+
     text-align: center;
 }
 
 .home-course-head h2 {
-    margin: 0 0 15px;
-    color: #fff;
+    margin: 0 0 16px;
+
+    color: #ffffff;
+
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.2;
+
+    font-weight: 800;
+
+    line-height: 1.15;
 }
 
 .home-course-sub {
-    max-width: 700px;
+    width: 100%;
+
     margin: 0 auto;
+
     color: #bfc7d8;
+
     font-size: clamp(15px, 2vw, 18px);
+
     line-height: 1.7;
 }
 
-/*=========================================================
-                    SWIPER
-=========================================================*/
+/* =========================================================
+   COURSE GRID
+========================================================= */
 
-.courseSwiper {
+.home-course-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 24px;
+
     width: 100%;
-    margin-top: 40px;
-    padding: 10px 5px 70px !important;
-    box-sizing: border-box;
-    overflow: hidden !important;
-}
 
-.courseSwiper .swiper-wrapper {
-    align-items: stretch;
-}
-
-.courseSwiper .swiper-slide {
-    height: auto;
-    display: flex;
     box-sizing: border-box;
 }
 
-/*=========================================================
-                    COURSE CARD
-=========================================================*/
+/* =========================================================
+   COURSE CARD
+========================================================= */
 
 .home-course-card {
     position: relative;
+
     width: 100%;
     min-width: 0;
-    height: 100%;
-    box-sizing: border-box;
+
+    min-height: 300px;
 
     display: flex;
     flex-direction: column;
 
-    padding: 28px;
-    border-radius: 24px;
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
 
     text-decoration: none;
+
+    border-radius: 22px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.05),
-            rgba(255,255,255,.02)
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.02)
         );
 
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
     backdrop-filter: blur(18px);
-
-    overflow: hidden;
+    -webkit-backdrop-filter: blur(18px);
 
     transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    isolation: isolate;
 }
 
-/* Decorative glow */
+.home-course-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255, 109, 115, 0.8);
+
+    box-shadow:
+        0 20px 45px rgba(255, 95, 109, 0.18);
+}
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
 
 .home-course-card::before {
     content: "";
+
     position: absolute;
 
     width: 180px;
@@ -113,37 +141,27 @@
     background:
         radial-gradient(
             circle,
-            rgba(255,95,109,.18),
+            rgba(255, 95, 109, 0.18),
             transparent 70%
         );
 
     pointer-events: none;
+
+    z-index: -1;
 }
 
-/* Hover */
-
-.home-course-card:hover {
-    transform: translateY(-8px);
-    border-color: #ff6d73;
-
-    box-shadow:
-        0 18px 45px rgba(255,95,109,.18);
-}
-
-/*=========================================================
-                    ICON
-=========================================================*/
+/* =========================================================
+   ICON
+========================================================= */
 
 .home-course-icon {
-    position: relative;
-    z-index: 1;
+    flex-shrink: 0;
 
-    width: 70px;
-    height: 70px;
-
-    flex: 0 0 70px;
+    width: 64px;
+    height: 64px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -151,7 +169,7 @@
 
     border-radius: 18px;
 
-    font-size: 32px;
+    font-size: 30px;
 
     background:
         linear-gradient(
@@ -161,76 +179,114 @@
         );
 
     box-shadow:
-        0 10px 30px rgba(255,95,109,.25);
+        0 10px 30px rgba(255, 95, 109, 0.22);
 }
 
-/*=========================================================
-                    TITLE
-=========================================================*/
+/* =========================================================
+   CARD TITLE
+========================================================= */
 
 .home-course-card h3 {
-    position: relative;
-    z-index: 1;
-
     margin: 0 0 12px;
 
-    color: #fff;
+    color: #ffffff;
 
-    font-size: clamp(20px, 2vw, 26px);
+    font-size: 1.25rem;
 
-    line-height: 1.35;
+    line-height: 1.4;
 
-    word-break: normal;
+    font-weight: 700;
+
     overflow-wrap: anywhere;
 }
 
-/*=========================================================
-                    DESCRIPTION
-=========================================================*/
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
 
 .home-course-tag {
-    position: relative;
-    z-index: 1;
-
-    margin: 0 0 25px;
+    margin: 0 0 24px;
 
     color: #bfc7d8;
 
     font-size: 15px;
 
-    line-height: 1.7;
+    line-height: 1.65;
 
     overflow-wrap: anywhere;
 }
 
-/*=========================================================
-                    LINK
-=========================================================*/
+/* =========================================================
+   CARD LINK
+========================================================= */
 
 .home-course-link {
-    position: relative;
-    z-index: 1;
+    display: inline-flex;
+
+    align-items: center;
 
     margin-top: auto;
 
     color: #ff9671;
 
     font-size: 15px;
-    font-weight: 600;
 
-    transition: letter-spacing .3s ease;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        letter-spacing 0.3s ease;
 }
 
 .home-course-card:hover .home-course-link {
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
+
+    transform: translateX(3px);
 }
 
-/*=========================================================
-                SWIPER PAGINATION
-=========================================================*/
+/* =========================================================
+   SWIPER
+========================================================= */
+
+.courseSwiper {
+    width: 100%;
+
+    margin-top: 50px;
+
+    padding:
+        10px
+        5px
+        70px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+.courseSwiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.courseSwiper .swiper-slide {
+    height: auto;
+
+    display: flex;
+
+    box-sizing: border-box;
+}
+
+.courseSwiper .home-course-card {
+    height: 100%;
+}
+
+/* =========================================================
+   SWIPER PAGINATION
+========================================================= */
 
 .courseSwiper .swiper-pagination {
-    bottom: 5px !important;
+    bottom: 10px !important;
 }
 
 .courseSwiper .swiper-pagination-bullet {
@@ -243,13 +299,15 @@
 
     opacity: 1;
 
-    transition: all .3s ease;
+    transition:
+        width 0.3s ease,
+        border-radius 0.3s ease;
 }
 
 .courseSwiper .swiper-pagination-bullet-active {
     width: 30px;
 
-    border-radius: 30px;
+    border-radius: 20px;
 
     background:
         linear-gradient(
@@ -259,102 +317,160 @@
         );
 }
 
-/*=========================================================
-                    TABLET
-=========================================================*/
+/* =========================================================
+   SWIPER ARROWS
+========================================================= */
+
+.courseSwiper .swiper-button-prev,
+.courseSwiper .swiper-button-next {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.courseSwiper .swiper-button-prev::after,
+.courseSwiper .swiper-button-next::after {
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media (max-width: 1400px) {
+
+    .home-course-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .home-courses {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .home-course-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 992px) {
 
     .home-courses {
-        padding: 80px 5%;
+        padding:
+            80px
+            5%;
     }
 
     .home-course-head {
         margin-bottom: 45px;
     }
 
+    .home-course-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+    }
+
     .home-course-card {
-        padding: 24px;
+        min-height: 280px;
+
+        padding: 22px;
     }
 
-    .home-course-icon {
-        width: 62px;
-        height: 62px;
-        flex-basis: 62px;
-
-        font-size: 28px;
-    }
-
-    .home-course-card h3 {
-        font-size: 21px;
-    }
 }
 
-/*=========================================================
-                    MOBILE
-=========================================================*/
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
     .home-courses {
-        width: 100%;
-        padding: 65px 20px;
+        padding:
+            70px
+            18px;
     }
 
     .home-course-head {
-        margin-bottom: 35px;
+        margin-bottom: 38px;
     }
 
     .home-course-head h2 {
-        font-size: 2.2rem;
-        line-height: 1.2;
+        font-size: 2.15rem;
     }
 
     .home-course-sub {
-        padding: 0;
-        font-size: 16px;
+        font-size: 15px;
+
         line-height: 1.65;
     }
 
-    .courseSwiper {
-        margin-top: 30px;
-        padding: 5px 0 60px !important;
-    }
+    .home-course-grid {
+        grid-template-columns: 1fr;
 
-    .courseSwiper .swiper-slide {
-        width: 100%;
+        gap: 16px;
     }
 
     .home-course-card {
-        width: 100%;
+        min-height: auto;
+
         padding: 22px;
+
         border-radius: 20px;
     }
 
     .home-course-icon {
         width: 58px;
         height: 58px;
-        flex-basis: 58px;
 
         margin-bottom: 18px;
 
         border-radius: 16px;
 
-        font-size: 25px;
+        font-size: 26px;
     }
 
     .home-course-card h3 {
-        font-size: 20px;
-        line-height: 1.35;
+        font-size: 1.2rem;
     }
 
     .home-course-tag {
         font-size: 14px;
-        line-height: 1.65;
+
+        line-height: 1.6;
     }
 
-    .home-course-link {
-        font-size: 14px;
+    .courseSwiper {
+        margin-top: 35px;
+
+        padding:
+            5px
+            0
+            60px;
     }
 
     .courseSwiper .swiper-button-prev,
@@ -363,24 +479,22 @@
         height: 38px;
     }
 
-    .courseSwiper .swiper-button-prev::after,
-    .courseSwiper .swiper-button-next::after {
-        font-size: 13px;
-    }
 }
 
-/*=========================================================
-                SMALL MOBILE
-=========================================================*/
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media (max-width: 480px) {
 
     .home-courses {
-        padding: 55px 16px;
+        padding:
+            60px
+            14px;
     }
 
     .home-course-head {
-        margin-bottom: 30px;
+        margin-bottom: 32px;
     }
 
     .home-course-head h2 {
@@ -388,46 +502,43 @@
     }
 
     .home-course-sub {
-        font-size: 15px;
-    }
+        padding: 0 4px;
 
-    .courseSwiper {
-        margin-top: 25px;
-        padding-bottom: 55px !important;
+        font-size: 14px;
     }
 
     .home-course-card {
-        padding: 20px;
+        padding: 19px;
+
         border-radius: 18px;
     }
 
     .home-course-icon {
         width: 52px;
         height: 52px;
-        flex-basis: 52px;
 
         font-size: 22px;
 
-        margin-bottom: 16px;
+        border-radius: 14px;
     }
 
     .home-course-card h3 {
-        font-size: 18px;
+        font-size: 1.1rem;
     }
 
     .home-course-tag {
         font-size: 13px;
-        line-height: 1.6;
     }
 
     .home-course-link {
-        font-size: 13px;
+        font-size: 14px;
     }
+
 }
 
-/*=========================================================
-                VERY SMALL DEVICES
-=========================================================*/
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
 
 @media (max-width: 360px) {
 
@@ -436,15 +547,8 @@
         padding-right: 12px;
     }
 
-    .home-course-card {
-        padding: 18px;
-    }
-
     .home-course-head h2 {
         font-size: 1.7rem;
     }
 
-    .home-course-card h3 {
-        font-size: 17px;
-    }
 }
