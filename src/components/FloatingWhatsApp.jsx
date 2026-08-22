@@ -26,17 +26,12 @@ const initialMessages = [
 function getBotReply(message) {
   const text = message.toLowerCase();
 
-  if (
-    text.includes("course") ||
-    text.includes("courses") ||
-    text.includes("training")
-  ) {
+  if (text.includes("course")) {
     return "We offer AI, Data Analytics, Software Testing, Full Stack, DevOps, Scrum Master, Flutter, Business Analytics, Tableau with AI, Cyber Security, and Frontend Development.";
   }
 
   if (
     text.includes("fee") ||
-    text.includes("fees") ||
     text.includes("price") ||
     text.includes("cost")
   ) {
@@ -46,8 +41,7 @@ function getBotReply(message) {
   if (
     text.includes("batch") ||
     text.includes("time") ||
-    text.includes("timing") ||
-    text.includes("schedule")
+    text.includes("timing")
   ) {
     return "We have online, offline, and hybrid training options. Batch timing depends on the selected course and current schedule.";
   }
@@ -63,22 +57,32 @@ function getBotReply(message) {
   if (
     text.includes("contact") ||
     text.includes("advisor") ||
-    text.includes("call") ||
-    text.includes("phone") ||
-    text.includes("whatsapp")
+    text.includes("call")
   ) {
     return "You can call or WhatsApp us at +91 8885492139. You can also submit the contact form on this website.";
   }
 
-  if (
-    text.includes("location") ||
-    text.includes("address") ||
-    text.includes("where")
-  ) {
-    return "Core Edge Academy is located in Ameerpet, Hyderabad. Please contact our advisor for the latest location and classroom details.";
-  }
+  return "I could not find an instant answer. Our team can help you with this. Please continue on WhatsApp to speak with our advisor.";
+}
 
-  return "I could not find an instant answer for that question. Please use the WhatsApp button below and our team will help you.";
+function shouldOpenWhatsApp(message) {
+  const text = message.toLowerCase();
+
+  return !(
+    text.includes("course") ||
+    text.includes("fee") ||
+    text.includes("price") ||
+    text.includes("cost") ||
+    text.includes("batch") ||
+    text.includes("time") ||
+    text.includes("timing") ||
+    text.includes("placement") ||
+    text.includes("job") ||
+    text.includes("support") ||
+    text.includes("contact") ||
+    text.includes("advisor") ||
+    text.includes("call")
+  );
 }
 
 function FloatingWhatsApp() {
@@ -115,6 +119,7 @@ function FloatingWhatsApp() {
     }
 
     const botText = getBotReply(trimmedMessage);
+    const needsWhatsapp = shouldOpenWhatsApp(trimmedMessage);
 
     setMessages((currentMessages) => [
       ...currentMessages,
@@ -126,21 +131,42 @@ function FloatingWhatsApp() {
         from: "bot",
         text: botText,
       },
+      ...(needsWhatsapp
+        ? [
+            {
+              from: "bot",
+              text: "If you would like a personal response from our team, you can continue on WhatsApp below.",
+            },
+          ]
+        : []),
     ]);
 
     setInput("");
+
+    if (needsWhatsapp) {
+      window.open(
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+          `Hello Core Edge, I asked: ${trimmedMessage} and would like a team response.`
+        )}`,
+        "_blank"
+      );
+    }
   };
 
   return (
-    <div className={`floating-chat ${isOpen ? "is-open" : ""}`}>
+    <div className="floating-chat">
+
+      {/* CHATBOT PANEL */}
       {isOpen && (
         <div
           className="floating-chat-panel"
           role="dialog"
           aria-label="Core Edge chatbot"
         >
+
+          {/* CHAT HEADER */}
           <div className="floating-chat-head">
-            <div className="chat-header-info">
+            <div className="chat-head-info">
               <span className="chat-avatar">
                 <FaRobot />
               </span>
@@ -151,6 +177,7 @@ function FloatingWhatsApp() {
               </div>
             </div>
 
+            {/* ONLY CLOSE BUTTON */}
             <button
               type="button"
               className="chat-close"
@@ -161,6 +188,7 @@ function FloatingWhatsApp() {
             </button>
           </div>
 
+          {/* CHAT MESSAGES */}
           <div
             className="floating-chat-body"
             ref={chatBodyRef}
@@ -175,6 +203,7 @@ function FloatingWhatsApp() {
             ))}
           </div>
 
+          {/* QUICK REPLIES */}
           <div className="quick-replies">
             {quickReplies.map((reply) => (
               <button
@@ -187,17 +216,18 @@ function FloatingWhatsApp() {
             ))}
           </div>
 
+          {/* INPUT */}
           <form
             className="chat-input-row"
-            onSubmit={(event) => {
-              event.preventDefault();
+            onSubmit={(e) => {
+              e.preventDefault();
               sendMessage();
             }}
           >
             <input
               type="text"
               value={input}
-              onChange={(event) => setInput(event.target.value)}
+              onChange={(e) => setInput(e.target.value)}
               placeholder="Type your question..."
               aria-label="Type your question"
             />
@@ -210,6 +240,7 @@ function FloatingWhatsApp() {
             </button>
           </form>
 
+          {/* WHATSAPP */}
           <a
             className="chat-whatsapp-link"
             href={whatsappUrl}
@@ -217,23 +248,27 @@ function FloatingWhatsApp() {
             rel="noopener noreferrer"
           >
             <FaWhatsapp />
-            <span>Continue on WhatsApp</span>
+            Continue on WhatsApp
           </a>
         </div>
       )}
 
-      <button
-        type="button"
-        className="chat-toggle-button"
-        onClick={() => setIsOpen((currentValue) => !currentValue)}
-        aria-label={
-          isOpen ? "Close chatbot" : "Open chatbot"
-        }
-      >
-        <FaRobot />
-        <span>{isOpen ? "Close" : "Chat"}</span>
-      </button>
+      {/* CHAT BUTTON
+          Completely hidden while chatbot is open */}
+      {!isOpen && (
+        <button
+          type="button"
+          className="chat-toggle-button"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open chatbot"
+        >
+          <FaRobot />
+          <span>Chat</span>
+        </button>
+      )}
 
+      {/* WHATSAPP BUTTON
+          Always remains visible */}
       <a
         className="floating-whatsapp-button"
         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
