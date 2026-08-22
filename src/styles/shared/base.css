@@ -1,195 +1,956 @@
+/* =========================================================
+   CORE EDGE ACADEMY
+   GLOBAL BASE STYLES
+   ========================================================= */
+
 :root {
-  --ink:  #070B14;
+
+  /* ---------- Colors ---------- */
+
+  --ink: #070B14;
   --ink-2: #0a0a11;
   --panel: #14141f;
   --indigo: #1f2032;
+
   --line: rgba(255, 255, 255, 0.08);
   --line-2: rgba(255, 255, 255, 0.14);
+
   --coral: #ec5667;
   --peach: #e09176;
-  --grad: linear-gradient(120deg, #ec5667 0%, #e09176 100%);
+
+  --grad:
+    linear-gradient(
+      120deg,
+      #ec5667 0%,
+      #e09176 100%
+    );
+
   --text: #f3f3f6;
   --muted: #9a9aac;
   --muted-2: #6e6e82;
 
-  --display: 'Space Grotesk', system-ui, sans-serif;
-  --body: 'Inter', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ---------- Fonts ---------- */
+
+  --display:
+    'Space Grotesk',
+    system-ui,
+    sans-serif;
+
+  --body:
+    'Inter',
+    system-ui,
+    sans-serif;
+
+  --mono:
+    'JetBrains Mono',
+    ui-monospace,
+    monospace;
+
+
+  /* ---------- Layout ---------- */
 
   --maxw: 1140px;
-  --gap: clamp(1.4rem, 4vw, 2.4rem);
+
+  --gap:
+    clamp(
+      1.4rem,
+      4vw,
+      2.4rem
+    );
+
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
 }
+
+
+html {
+
+  scroll-behavior: smooth;
+
+  overflow-x: hidden;
+
+}
+
 
 body {
+
+  min-width: 320px;
+
   font-family: var(--body);
-  background:#070B14;
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+
+  background:
+    var(--ink);
+
+  color:
+    var(--text);
+
+  line-height:
+    1.6;
+
+  -webkit-font-smoothing:
+    antialiased;
+
+  -moz-osx-font-smoothing:
+    grayscale;
+
+  overflow-x:
+    hidden;
+
 }
 
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
-ul, ol { list-style: none; }
 
-::selection { background: var(--coral); color: #fff; }
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior:
+      auto;
+
+  }
+
+}
+
+
+/* =========================================================
+   BASIC ELEMENTS
+   ========================================================= */
+
+a {
+
+  color:
+    inherit;
+
+  text-decoration:
+    none;
+
+}
+
+
+img {
+
+  max-width:
+    100%;
+
+  height:
+    auto;
+
+  display:
+    block;
+
+}
+
+
+button,
+input,
+textarea,
+select {
+
+  font:
+    inherit;
+
+}
+
+
+button {
+
+  cursor:
+    pointer;
+
+}
+
+
+ul,
+ol {
+
+  list-style:
+    none;
+
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+
+  background:
+    var(--coral);
+
+  color:
+    #fff;
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
 
 :focus-visible {
-  outline: 2px solid var(--peach);
-  outline-offset: 3px;
-  border-radius: 4px;
+
+  outline:
+    2px solid var(--peach);
+
+  outline-offset:
+    3px;
+
+  border-radius:
+    4px;
+
 }
+
+
+/* =========================================================
+   SKIP LINK
+   ========================================================= */
 
 .skip {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: var(--coral);
-  color: #fff;
-  padding: 0.6rem 1rem;
-  z-index: 200;
-  font-family: var(--mono);
-  font-size: 0.8rem;
-}
-.skip:focus { left: 1rem; top: 1rem; }
 
-/* ---------- Reveal ---------- */
+  position:
+    absolute;
+
+  left:
+    -9999px;
+
+  top:
+    0;
+
+  background:
+    var(--coral);
+
+  color:
+    #fff;
+
+  padding:
+    0.6rem 1rem;
+
+  z-index:
+    200;
+
+  font-family:
+    var(--mono);
+
+  font-size:
+    0.8rem;
+
+}
+
+
+.skip:focus {
+
+  left:
+    1rem;
+
+  top:
+    1rem;
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-  transition-delay: var(--d, 0ms);
+
+  opacity:
+    0;
+
+  transform:
+    translateY(20px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s
+    cubic-bezier(
+      0.2,
+      0.7,
+      0.2,
+      1
+    );
+
+  transition-delay:
+    var(--d, 0ms);
+
 }
-[data-reveal].is-in { opacity: 1; transform: none; }
+
+
+[data-reveal].is-in {
+
+  opacity:
+    1;
+
+  transform:
+    none;
+
+}
+
+
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1; transform: none; transition: none; }
+
+  [data-reveal] {
+
+    opacity:
+      1;
+
+    transform:
+      none;
+
+    transition:
+      none;
+
+  }
+
 }
 
-/* ---------- Nav ---------- */
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
 .nav {
-  position: fixed;
-  inset: 0 0 auto 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem clamp(1.1rem, 4vw, 2.6rem);
-  transition: background 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
-  border-bottom: 1px solid transparent;
+
+  position:
+    fixed;
+
+  inset:
+    0 0 auto 0;
+
+  z-index:
+    100;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    1rem;
+
+  padding:
+    1.1rem
+    clamp(
+      1.1rem,
+      4vw,
+      2.6rem
+    );
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    padding 0.3s ease;
+
+  border-bottom:
+    1px solid transparent;
+
 }
+
+
 .nav.is-scrolled {
-  background: rgba(5, 5, 9, 0.78);
-  backdrop-filter: blur(14px);
-  border-bottom-color: var(--line);
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
+
+  background:
+    rgba(5, 5, 9, 0.78);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  border-bottom-color:
+    var(--line);
+
+  padding-top:
+    0.7rem;
+
+  padding-bottom:
+    0.7rem;
+
 }
 
-.brand { display: flex; align-items: center; gap: 0.6rem; }
-.brand-mark { width: auto; height: 30px; object-fit: contain; }
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    0.6rem;
+
+  min-width:
+    0;
+
+}
+
+
+.brand-mark {
+
+  width:
+    auto;
+
+  height:
+    30px;
+
+  object-fit:
+    contain;
+
+  flex-shrink:
+    0;
+
+}
+
+
 .brand-name {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.04rem;
-  letter-spacing: -0.01em;
-  line-height: 1;
-  display: flex;
-  flex-direction: column;
-}
-.brand-sub {
-  font-family: var(--mono);
-  font-weight: 400;
-  font-size: 0.6rem;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 3px;
+
+  font-family:
+    var(--display);
+
+  font-weight:
+    700;
+
+  font-size:
+    1.04rem;
+
+  letter-spacing:
+    -0.01em;
+
+  line-height:
+    1;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
 }
 
-.nav-links { display: flex; align-items: center; gap: 0.4rem; }
+
+.brand-sub {
+
+  font-family:
+    var(--mono);
+
+  font-weight:
+    400;
+
+  font-size:
+    0.6rem;
+
+  letter-spacing:
+    0.42em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--muted);
+
+  margin-top:
+    3px;
+
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.nav-links {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    0.4rem;
+
+}
+
+
 .nav-links a:not(.nav-cta) {
-  position: relative;
-  font-size: 0.9rem;
-  color: var(--muted);
-  padding: 0.5rem 0.95rem;
-  border-radius: 999px;
-  transition: color 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+  position:
+    relative;
+
+  font-size:
+    0.9rem;
+
+  color:
+    var(--muted);
+
+  padding:
+    0.5rem 0.95rem;
+
+  border-radius:
+    999px;
+
+  transition:
+    color 0.2s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+
 }
+
+
 .nav-links a:not(.nav-cta):hover {
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
+
+  color:
+    var(--text);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
 }
+
+
 .nav-links a.is-active {
-  color: var(--text);
-  background: linear-gradient(120deg, rgba(236, 86, 103, 0.22), rgba(224, 145, 118, 0.16));
-  box-shadow: inset 0 0 0 1px rgba(236, 86, 103, 0.42);
+
+  color:
+    var(--text);
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(236, 86, 103, 0.22),
+      rgba(224, 145, 118, 0.16)
+    );
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(236, 86, 103, 0.42);
+
 }
-.nav-cta { margin-left: 0.7rem; }
+
+
+/* =========================================================
+   NAV CTA
+   ========================================================= */
+
 .nav-cta {
-  font-family: var(--mono);
-  font-size: 0.82rem !important;
-  color: var(--text) !important;
-  border: 1px solid var(--line-2);
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  transition: border-color 0.2s ease, background 0.2s ease;
+
+  margin-left:
+    0.7rem;
+
+  font-family:
+    var(--mono);
+
+  font-size:
+    0.82rem !important;
+
+  color:
+    var(--text) !important;
+
+  border:
+    1px solid var(--line-2);
+
+  padding:
+    0.5rem 1rem;
+
+  border-radius:
+    999px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+
 }
-.nav-cta:hover { border-color: var(--coral); background: rgba(236, 86, 103, 0.12); }
+
+
+.nav-cta:hover {
+
+  border-color:
+    var(--coral);
+
+  background:
+    rgba(236, 86, 103, 0.12);
+
+}
+
+
+/* =========================================================
+   MOBILE BURGER
+   ========================================================= */
 
 .burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  padding: 6px;
+
+  display:
+    none;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+
+  background:
+    none;
+
+  border:
+    0;
+
+  cursor:
+    pointer;
+
+  padding:
+    6px;
+
 }
+
+
 .burger span {
-  width: 24px;
-  height: 2px;
-  background: var(--text);
-  transition: transform 0.3s ease, opacity 0.2s ease;
-}
-.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.burger.open span:nth-child(2) { opacity: 0; }
-.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ---------- Layout ---------- */
-.section{
+  width:
+    24px;
 
-    width:min(1600px,95%);
+  height:
+    2px;
 
-    margin:auto;
+  background:
+    var(--text);
 
-    padding:100px 0;
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
 
 }
-.sec-head { max-width: 640px; margin-bottom: clamp(2.4rem, 5vw, 3.4rem); }
+
+
+.burger.open span:nth-child(1) {
+
+  transform:
+    translateY(7px)
+    rotate(45deg);
+
+}
+
+
+.burger.open span:nth-child(2) {
+
+  opacity:
+    0;
+
+}
+
+
+.burger.open span:nth-child(3) {
+
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+
+}
+
+
+/* =========================================================
+   GLOBAL SECTION
+   ========================================================= */
+
+.section {
+
+  width:
+    min(
+      var(--maxw),
+      calc(100% - 40px)
+    );
+
+  margin:
+    0 auto;
+
+  padding:
+    100px 0;
+
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.sec-head {
+
+  max-width:
+    640px;
+
+  margin-bottom:
+    clamp(
+      2.4rem,
+      5vw,
+      3.4rem
+    );
+
+}
+
+
 .sec-head h2 {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(1.9rem, 4.6vw, 3rem);
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  margin: 0.7rem 0 0.9rem;
+
+  font-family:
+    var(--display);
+
+  font-weight:
+    600;
+
+  font-size:
+    clamp(
+      1.9rem,
+      4.6vw,
+      3rem
+    );
+
+  letter-spacing:
+    -0.025em;
+
+  line-height:
+    1.05;
+
+  margin:
+    0.7rem 0 0.9rem;
+
 }
-.sec-sub { color: var(--muted); font-size: 1.02rem; max-width: 52ch; }
+
+
+.sec-sub {
+
+  color:
+    var(--muted);
+
+  font-size:
+    1.02rem;
+
+  max-width:
+    52ch;
+
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
 
 .eyebrow {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  color: var(--muted-2);
-}
-.eyebrow span { color: var(--peach); }
 
+  font-family:
+    var(--mono);
+
+  font-size:
+    0.78rem;
+
+  letter-spacing:
+    0.02em;
+
+  color:
+    var(--muted-2);
+
+}
+
+
+.eyebrow span {
+
+  color:
+    var(--peach);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+  .section {
+
+    width:
+      min(
+        92%,
+        var(--maxw)
+      );
+
+    padding:
+      80px 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .nav {
+
+    padding:
+      0.8rem 1rem;
+
+  }
+
+
+  .nav.is-scrolled {
+
+    padding-top:
+      0.65rem;
+
+    padding-bottom:
+      0.65rem;
+
+  }
+
+
+  .nav-links {
+
+    display:
+      none;
+
+  }
+
+
+  .burger {
+
+    display:
+      flex;
+
+  }
+
+
+  .brand-mark {
+
+    height:
+      28px;
+
+  }
+
+
+  .brand-name {
+
+    font-size:
+      1rem;
+
+  }
+
+
+  .brand-sub {
+
+    font-size:
+      0.55rem;
+
+  }
+
+
+  .section {
+
+    width:
+      calc(100% - 32px);
+
+    padding:
+      70px 0;
+
+  }
+
+
+  .sec-head {
+
+    margin-bottom:
+      2.2rem;
+
+  }
+
+
+  .sec-head h2 {
+
+    font-size:
+      clamp(
+        1.8rem,
+        8vw,
+        2.4rem
+      );
+
+  }
+
+
+  .sec-sub {
+
+    font-size:
+      0.96rem;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .section {
+
+    width:
+      calc(100% - 24px);
+
+    padding:
+      60px 0;
+
+  }
+
+
+  .sec-head h2 {
+
+    font-size:
+      2rem;
+
+  }
+
+
+  .sec-sub {
+
+    font-size:
+      0.92rem;
+
+  }
+
+
+  .eyebrow {
+
+    font-size:
+      0.7rem;
+
+  }
+
+}
