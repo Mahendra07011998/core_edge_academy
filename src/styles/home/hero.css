@@ -1,21 +1,21 @@
 /* =========================================================
    CORE EDGE ACADEMY
-   PREMIUM HERO - FULLY RESPONSIVE
+   PREMIUM RESPONSIVE HERO
 ========================================================= */
 
 .hero {
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
     width: 100%;
     min-height: 100vh;
-    min-height: 100svh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 120px 24px 90px;
-
-    overflow: hidden;
+    padding: 120px 6% 90px;
 
     background:
         radial-gradient(
@@ -34,12 +34,11 @@
             transparent 40%
         ),
         #070b14;
-
-    box-sizing: border-box;
 }
 
+
 /* =========================================================
-   GRID BACKGROUND
+   BACKGROUND GRID
 ========================================================= */
 
 .hero::before {
@@ -48,14 +47,16 @@
     position: absolute;
     inset: 0;
 
+    z-index: -2;
+
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.025) 1px,
+            rgba(255, 255, 255, 0.03) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.025) 1px,
+            rgba(255, 255, 255, 0.03) 1px,
             transparent 1px
         );
 
@@ -65,6 +66,7 @@
 
     pointer-events: none;
 }
+
 
 /* =========================================================
    GLOW
@@ -78,21 +80,25 @@
     width: 650px;
     height: 650px;
 
-    right: -280px;
-    top: -280px;
+    right: -250px;
+    top: -250px;
+
+    z-index: -1;
 
     border-radius: 50%;
 
-    background: radial-gradient(
-        circle,
-        rgba(255, 95, 109, 0.18),
-        transparent 70%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 95, 109, 0.20),
+            transparent 70%
+        );
 
     filter: blur(100px);
 
     pointer-events: none;
 }
+
 
 /* =========================================================
    HERO CONTENT
@@ -102,14 +108,14 @@
     position: relative;
     z-index: 2;
 
-    width: min(100%, 900px);
+    width: 100%;
+    max-width: 950px;
 
     margin: 0 auto;
 
     text-align: center;
-
-    box-sizing: border-box;
 }
+
 
 /* =========================================================
    TAG
@@ -121,7 +127,11 @@
     align-items: center;
     justify-content: center;
 
+    max-width: 100%;
+
     padding: 11px 20px;
+
+    margin-bottom: 28px;
 
     border-radius: 50px;
 
@@ -129,56 +139,57 @@
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     color: #ff7d72;
-
-    letter-spacing: 1.8px;
-
-    text-transform: uppercase;
 
     font-size: 13px;
     font-weight: 700;
 
-    margin-bottom: 28px;
+    letter-spacing: 1.8px;
 
-    max-width: 100%;
+    text-transform: uppercase;
 }
 
+
 /* =========================================================
-   HERO HEADING
+   HERO TITLE
 ========================================================= */
 
 .hero h1 {
     width: 100%;
+    max-width: 950px;
 
     margin: 0 auto 28px;
 
     color: #ffffff;
 
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(
+        3rem,
+        6vw,
+        4.5rem
+    );
 
     font-weight: 900;
 
     line-height: 1.08;
 
     letter-spacing: -2px;
-
-    text-align: center;
-
-    overflow-wrap: break-word;
 }
+
 
 /* Gradient text */
 
 .hero h1 {
-    background: linear-gradient(
-        180deg,
-        #ffffff 10%,
-        #f2b3ad 50%,
-        #d83232 100%
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #ffffff 35%,
+            #ff9671 70%,
+            #ec5667 100%
+        );
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -186,40 +197,44 @@
     -webkit-text-fill-color: transparent;
 }
 
+
 /* =========================================================
    HERO DESCRIPTION
 ========================================================= */
 
 .hero p {
-    width: min(100%, 700px);
+    width: 100%;
+    max-width: 700px;
 
-    margin: 0 auto 45px;
+    margin: 0 auto 42px;
 
     color: #bfc7d8;
 
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: 19px;
 
-    line-height: 1.8;
-
-    text-align: center;
+    line-height: 1.75;
 }
 
+
 /* =========================================================
-   BUTTONS
+   BUTTON CONTAINER
 ========================================================= */
 
 .hero-buttons {
     display: flex;
 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     gap: 16px;
 
     width: 100%;
-
-    flex-wrap: wrap;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .hero-buttons button {
     min-height: 54px;
@@ -230,10 +245,10 @@
 
     border: none;
 
+    font-family: inherit;
+
     font-size: 15px;
     font-weight: 700;
-
-    font-family: inherit;
 
     cursor: pointer;
 
@@ -241,9 +256,8 @@
         transform 0.3s ease,
         box-shadow 0.3s ease,
         background 0.3s ease;
-
-    box-sizing: border-box;
 }
+
 
 /* =========================================================
    PRIMARY BUTTON
@@ -252,22 +266,27 @@
 .hero-buttons button:first-child {
     color: #ffffff;
 
-    background: linear-gradient(
-        135deg,
-        #ff5f6d,
-        #ff9671
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #ff5f6d,
+            #ff9671
+        );
 
     box-shadow:
-        0 10px 30px rgba(255, 95, 109, 0.2);
+        0 10px 30px
+        rgba(255, 95, 109, 0.20);
 }
+
 
 .hero-buttons button:first-child:hover {
     transform: translateY(-4px);
 
     box-shadow:
-        0 18px 40px rgba(255, 95, 109, 0.35);
+        0 18px 40px
+        rgba(255, 95, 109, 0.35);
 }
+
 
 /* =========================================================
    SECONDARY BUTTON
@@ -276,43 +295,78 @@
 .hero-buttons button:last-child {
     color: #ffffff;
 
-    background: rgba(255, 255, 255, 0.05);
+    background:
+        rgba(255, 255, 255, 0.05);
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 }
 
+
 .hero-buttons button:last-child:hover {
     transform: translateY(-4px);
 
-    background: rgba(255, 255, 255, 0.09);
+    background:
+        rgba(255, 255, 255, 0.09);
 }
+
 
 /* =========================================================
    HERO ILLUSTRATION
 ========================================================= */
 
 .hero-illustration {
+    position: relative;
+    z-index: 2;
+
     max-width: 100%;
+
+    overflow: hidden;
 }
 
+
+.hero-illustration img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+}
+
+
 /* =========================================================
-   LARGE LAPTOP
+   LARGE DESKTOP
 ========================================================= */
 
 @media (max-width: 1200px) {
 
     .hero {
-        padding: 110px 30px 80px;
+        padding:
+            110px
+            5%
+            80px;
     }
 
     .hero-content {
         max-width: 850px;
     }
 
+    .hero h1 {
+        font-size: clamp(
+            3rem,
+            6vw,
+            4rem
+        );
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 650px;
+    }
 }
+
 
 /* =========================================================
    TABLET
@@ -324,24 +378,34 @@
         min-height: auto;
 
         padding:
-            110px
-            24px
-            80px;
+            100px
+            5%
+            75px;
+    }
+
+    .hero-content {
+        max-width: 800px;
     }
 
     .hero h1 {
-        font-size: clamp(2.8rem, 7vw, 4rem);
+        font-size: clamp(
+            2.8rem,
+            7vw,
+            3.7rem
+        );
+
+        letter-spacing: -1.5px;
     }
 
     .hero p {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .hero-illustration {
         display: none;
     }
-
 }
+
 
 /* =========================================================
    MOBILE
@@ -350,76 +414,98 @@
 @media (max-width: 768px) {
 
     .hero {
+        width: 100%;
+
         min-height: auto;
 
         padding:
-            100px
-            18px
-            70px;
-
-        align-items: center;
+            85px
+            20px
+            65px;
     }
 
-    .hero::after {
-        width: 400px;
-        height: 400px;
-
-        right: -200px;
-        top: -150px;
-
-        filter: blur(80px);
-    }
 
     .hero-content {
         width: 100%;
         max-width: 100%;
     }
 
+
     .hero-tag {
-        font-size: 11px;
+        max-width: 100%;
 
-        letter-spacing: 1.3px;
-
-        padding: 9px 16px;
+        padding:
+            9px
+            15px;
 
         margin-bottom: 22px;
+
+        font-size: 10px;
+
+        letter-spacing: 1.3px;
     }
 
+
     .hero h1 {
-        font-size: clamp(2.25rem, 10vw, 3rem);
+        width: 100%;
+
+        margin-bottom: 22px;
+
+        font-size:
+            clamp(
+                2.3rem,
+                9vw,
+                3.1rem
+            );
 
         line-height: 1.08;
 
-        letter-spacing: -1.2px;
-
-        margin-bottom: 22px;
+        letter-spacing: -1px;
     }
+
 
     .hero p {
         width: 100%;
 
+        max-width: 520px;
+
+        margin-bottom: 30px;
+
         font-size: 16px;
 
-        line-height: 1.7;
-
-        margin-bottom: 32px;
+        line-height: 1.65;
     }
 
+
     .hero-buttons {
+        width: 100%;
+
         flex-direction: column;
 
         gap: 12px;
     }
 
+
     .hero-buttons button {
-        width: min(100%, 320px);
+        width: 100%;
 
         min-height: 52px;
 
-        padding: 14px 20px;
+        padding:
+            14px
+            20px;
+
+        border-radius: 13px;
+
+        font-size: 14px;
     }
 
+
+    .hero-illustration {
+        display: none;
+    }
 }
+
 
 /* =========================================================
    SMALL MOBILE
@@ -429,58 +515,67 @@
 
     .hero {
         padding:
-            90px
-            14px
-            60px;
+            72px
+            16px
+            58px;
     }
 
-    .hero-tag {
-        font-size: 10px;
 
-        padding: 8px 14px;
+    .hero-tag {
+        padding:
+            8px
+            13px;
+
+        font-size: 9px;
 
         letter-spacing: 1px;
     }
 
-    .hero h1 {
-        font-size: 2.15rem;
 
-        letter-spacing: -0.8px;
+    .hero h1 {
+        font-size: 2.2rem;
 
         line-height: 1.1;
+
+        letter-spacing: -0.8px;
     }
+
 
     .hero p {
         font-size: 15px;
 
-        line-height: 1.65;
+        line-height: 1.6;
     }
+
 
     .hero-buttons button {
-        width: 100%;
+        min-height: 50px;
 
-        max-width: 300px;
+        font-size: 14px;
     }
-
 }
 
+
 /* =========================================================
-   VERY SMALL PHONES
+   VERY SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 360px) {
 
     .hero {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding:
+            65px
+            14px
+            50px;
     }
 
+
     .hero h1 {
-        font-size: 1.9rem;
+        font-size: 2rem;
     }
+
 
     .hero p {
         font-size: 14px;
     }
-
 }
