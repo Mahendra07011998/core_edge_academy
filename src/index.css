@@ -1,16 +1,50 @@
+/* =========================================================
+   CORE EDGE ACADEMY
+   GLOBAL STYLES
+========================================================= */
+
+/* =========================================================
+   SHARED / GLOBAL
+========================================================= */
+
 @import "./styles/shared/base.css";
-@import "./styles/home/hero-legacy.css";
-@import "./styles/home/courses-legacy.css";
-@import "./styles/home/why-us.css";
 @import "./styles/shared/steps-marquee.css";
-@import "./styles/home/audience.css";
-@import "./styles/home/faq.css";
 @import "./styles/shared/cta.css";
 @import "./styles/shared/footer.css";
-@import "./styles/legacy/course-page-legacy.css";
-@import "./styles/home/success-stories.css";
-@import "./styles/legacy/course-page-modern.css";
-@import "./styles/home/hero.css";
-@import "./styles/home/hiring-partners.css";
-@import "./styles/home/contact.css";
 @import "./styles/shared/footer-social.css";
+
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
+/* Hero */
+@import "./styles/home/hero.css";
+
+/* Courses */
+@import "./styles/home/course-section.css";
+
+/* Why Core Edge */
+@import "./styles/home/why-us.css";
+
+/* Audience */
+@import "./styles/home/audience.css";
+
+/* FAQ */
+@import "./styles/home/faq.css";
+
+/* Success Stories */
+@import "./styles/home/success-stories.css";
+
+/* Hiring Partners */
+@import "./styles/home/hiring-partners.css";
+
+/* Contact */
+@import "./styles/home/contact.css";
+
+
+/* =========================================================
+   COURSE PAGES
+========================================================= */
+
+@import "./styles/legacy/course-page-modern.css";
