@@ -1,50 +1,184 @@
 /* =========================================================
    CORE EDGE ACADEMY
-   GLOBAL STYLES
-========================================================= */
+   GLOBAL CSS ENTRY FILE
+   ========================================================= */
 
 /* =========================================================
-   SHARED / GLOBAL
-========================================================= */
+   1. VARIABLES
+   ========================================================= */
+
+@import "./styles/shared/variables.css";
+
+
+/* =========================================================
+   2. BASE / GLOBAL
+   ========================================================= */
 
 @import "./styles/shared/base.css";
+@import "./styles/shared/global.css";
+@import "./styles/shared/background.css";
+
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+
+@import "./styles/shared/header.css";
+
+
+/* =========================================================
+   4. BUTTONS
+   ========================================================= */
+
+@import "./styles/shared/buttons.css";
+
+
+/* =========================================================
+   5. HOME - HERO
+   ========================================================= */
+
+/* Modern hero */
+@import "./styles/home/hero.css";
+
+
+/* =========================================================
+   6. HOME - COURSES
+   ========================================================= */
+
+/* Modern course section */
+@import "./styles/home/courses-legacy.css";
+
+
+/* =========================================================
+   7. HOME - WHY US
+   ========================================================= */
+
+@import "./styles/home/why-us.css";
+
+
+/* =========================================================
+   8. HOME - STEPS / MARQUEE
+   ========================================================= */
+
 @import "./styles/shared/steps-marquee.css";
+
+
+/* =========================================================
+   9. HOME - AUDIENCE
+   ========================================================= */
+
+@import "./styles/home/audience.css";
+
+
+/* =========================================================
+   10. HOME - SUCCESS STORIES
+   ========================================================= */
+
+@import "./styles/home/success-stories.css";
+
+
+/* =========================================================
+   11. HOME - HIRING PARTNERS
+   ========================================================= */
+
+@import "./styles/home/hiring-partners.css";
+
+
+/* =========================================================
+   12. HOME - FAQ
+   ========================================================= */
+
+@import "./styles/home/faq.css";
+
+
+/* =========================================================
+   13. HOME - CONTACT
+   ========================================================= */
+
+@import "./styles/home/contact.css";
+
+
+/* =========================================================
+   14. CTA
+   ========================================================= */
+
 @import "./styles/shared/cta.css";
+
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
 @import "./styles/shared/footer.css";
 @import "./styles/shared/footer-social.css";
 
 
 /* =========================================================
-   HOME PAGE
-========================================================= */
+   16. FLOATING WHATSAPP
+   ========================================================= */
 
-/* Hero */
-@import "./styles/home/hero.css";
-
-/* Courses */
-@import "./styles/home/course-section.css";
-
-/* Why Core Edge */
-@import "./styles/home/why-us.css";
-
-/* Audience */
-@import "./styles/home/audience.css";
-
-/* FAQ */
-@import "./styles/home/faq.css";
-
-/* Success Stories */
-@import "./styles/home/success-stories.css";
-
-/* Hiring Partners */
-@import "./styles/home/hiring-partners.css";
-
-/* Contact */
-@import "./styles/home/contact.css";
+@import "./styles/shared/floating-whatsapp.css";
 
 
 /* =========================================================
-   COURSE PAGES
-========================================================= */
+   17. COURSE PAGES
+   ========================================================= */
 
 @import "./styles/legacy/course-page-modern.css";
+
+
+/* =========================================================
+   18. RESPONSIVE
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   Responsive CSS is loaded LAST so that
+   mobile/tablet rules can override desktop styles.
+*/
+
+@import "./styles/shared/responsive.css";
+
+
+/* =========================================================
+   19. GLOBAL RESPONSIVE SAFETY
+   ========================================================= */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
