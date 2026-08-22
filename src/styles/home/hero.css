@@ -1,41 +1,43 @@
-/* =========================================
-   PREMIUM HERO
-========================================= */
+/*=========================================================
+                    PREMIUM HERO
+=========================================================*/
 
 .hero {
     position: relative;
-    overflow: hidden;
-
+    width: 100%;
     min-height: 100vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 120px 8% 90px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    padding: 120px 6% 90px;
 
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(255, 95, 109, 0.18),
+            rgba(255, 95, 109, .18),
             transparent 30%
         ),
         radial-gradient(
             circle at 85% 25%,
-            rgba(255, 150, 113, 0.12),
+            rgba(255, 150, 113, .12),
             transparent 35%
         ),
         radial-gradient(
             circle at 50% 100%,
-            rgba(0, 140, 255, 0.08),
+            rgba(0, 140, 255, .08),
             transparent 40%
         ),
         #070B14;
 }
 
-/* =========================================
-   ANIMATED GRID
-========================================= */
+/*=========================================================
+                    BACKGROUND GRID
+=========================================================*/
 
 .hero::before {
     content: "";
@@ -45,25 +47,25 @@
 
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.03) 1px,
+            rgba(255,255,255,.03) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.03) 1px,
+            rgba(255,255,255,.03) 1px,
             transparent 1px
         );
 
     background-size: 70px 70px;
 
-    opacity: 0.35;
+    opacity: .35;
 
     pointer-events: none;
 }
 
-/* =========================================
-   GLOW
-========================================= */
+/*=========================================================
+                    GLOW
+=========================================================*/
 
 .hero::after {
     content: "";
@@ -77,8 +79,9 @@
 
     background:
         radial-gradient(
-            rgba(255, 95, 109, 0.18),
-            transparent
+            circle,
+            rgba(255,95,109,.18),
+            transparent 70%
         );
 
     top: -250px;
@@ -89,30 +92,30 @@
     pointer-events: none;
 }
 
-/* =========================================
-   HERO CONTENT
-========================================= */
+/*=========================================================
+                    CONTENT
+=========================================================*/
 
 .hero-content {
     position: relative;
-
     z-index: 2;
 
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
 
     margin: 0 auto;
 
     text-align: center;
+
+    box-sizing: border-box;
 }
 
-/* =========================================
-   HERO TAG
-========================================= */
+/*=========================================================
+                    TAG
+=========================================================*/
 
 .hero-tag {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
@@ -122,35 +125,35 @@
 
     border-radius: 50px;
 
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,.05);
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,.08);
 
     backdrop-filter: blur(20px);
 
     color: #ff7d72;
 
     letter-spacing: 2px;
-
     text-transform: uppercase;
 
     font-size: 14px;
-
     font-weight: 700;
 
-    margin: 0 auto 30px;
+    margin-bottom: 30px;
+
+    box-sizing: border-box;
 }
 
-/* =========================================
-   HERO HEADING
-========================================= */
+/*=========================================================
+                    HEADING
+=========================================================*/
 
 .hero h1 {
     margin: 0 0 30px;
 
-    color: white;
+    color: #fff;
 
-    font-size: 4.5rem;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
 
     font-weight: 900;
 
@@ -158,12 +161,12 @@
 
     letter-spacing: -2px;
 
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
 
     background:
         linear-gradient(
             180deg,
-            white,
+            #ffffff,
             #ab1919
         );
 
@@ -173,26 +176,28 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* =========================================
-   HERO DESCRIPTION
-========================================= */
+/*=========================================================
+                    DESCRIPTION
+=========================================================*/
 
 .hero p {
     width: 100%;
     max-width: 700px;
 
-    margin: 0 auto 50px;
+    margin: 0 auto 45px;
 
-    color: #BFC7D8;
+    color: #bfc7d8;
 
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px);
 
     line-height: 1.8;
+
+    box-sizing: border-box;
 }
 
-/* =========================================
-   HERO BUTTONS
-========================================= */
+/*=========================================================
+                    BUTTONS
+=========================================================*/
 
 .hero-buttons {
     display: flex;
@@ -202,44 +207,37 @@
 
     flex-wrap: wrap;
 
-    gap: 22px;
+    gap: 18px;
 
     width: 100%;
 }
 
-/* =========================================
-   BUTTON
-========================================= */
-
 .hero-buttons button {
-    min-height: 56px;
+    min-height: 54px;
 
-    padding: 16px 34px;
+    padding: 16px 30px;
 
     border-radius: 16px;
 
     border: none;
 
     font-size: 16px;
-
     font-weight: 700;
 
     cursor: pointer;
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        background 0.35s ease;
-
-    white-space: nowrap;
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
 }
 
-/* =========================================
-   PRIMARY BUTTON
-========================================= */
+/*=========================================================
+                    PRIMARY BUTTON
+=========================================================*/
 
 .hero-buttons button:first-child {
-    color: white;
+    color: #fff;
 
     background:
         linear-gradient(
@@ -250,65 +248,55 @@
 }
 
 .hero-buttons button:first-child:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
 
     box-shadow:
-        0 20px 45px rgba(255, 95, 109, 0.35);
+        0 20px 45px rgba(255,95,109,.35);
 }
 
-/* =========================================
-   SECONDARY BUTTON
-========================================= */
+/*=========================================================
+                    SECONDARY BUTTON
+=========================================================*/
 
 .hero-buttons button:last-child {
-    color: white;
+    color: #fff;
 
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,.05);
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,.08);
 
     backdrop-filter: blur(15px);
 }
 
 .hero-buttons button:last-child:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
 
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255,255,255,.08);
 }
 
-/* =========================================
-   TABLET
-========================================= */
+/*=========================================================
+                    LARGE TABLET
+=========================================================*/
 
 @media (max-width: 992px) {
 
     .hero {
-        min-height: auto;
+        min-height: 85vh;
 
-        padding:
-            110px
-            6%
-            80px;
+        padding: 110px 5% 80px;
     }
 
     .hero-content {
-        max-width: 760px;
+        max-width: 800px;
     }
 
-    .hero h1 {
-        font-size: 56px;
-
-        letter-spacing: -1.5px;
+    .hero-tag {
+        font-size: 13px;
+        padding: 10px 18px;
     }
 
     .hero p {
         max-width: 650px;
-
-        font-size: 18px;
-
-        line-height: 1.75;
-
-        margin-bottom: 40px;
     }
 
     .hero-illustration {
@@ -316,59 +304,48 @@
     }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+/*=========================================================
+                    TABLET / MOBILE
+=========================================================*/
 
 @media (max-width: 768px) {
 
     .hero {
         min-height: auto;
 
-        padding:
-            100px
-            20px
-            70px;
+        padding: 110px 20px 70px;
     }
 
     .hero-content {
         width: 100%;
-
-        max-width: 100%;
     }
 
     .hero-tag {
-        padding: 10px 16px;
+        max-width: 100%;
 
-        margin-bottom: 22px;
+        padding: 9px 16px;
 
         font-size: 11px;
 
-        letter-spacing: 1.5px;
+        letter-spacing: 1.2px;
 
-        line-height: 1.4;
-
-        text-align: center;
+        margin-bottom: 24px;
     }
 
     .hero h1 {
-        width: 100%;
-
         margin-bottom: 22px;
 
-        font-size: 42px;
-
-        line-height: 1.12;
+        font-size: clamp(2.2rem, 10vw, 3rem);
 
         letter-spacing: -1px;
+
+        line-height: 1.12;
     }
 
     .hero p {
-        width: 100%;
-
         margin-bottom: 32px;
 
-        font-size: 17px;
+        font-size: 16px;
 
         line-height: 1.7;
     }
@@ -376,41 +353,35 @@
     .hero-buttons {
         flex-direction: column;
 
-        gap: 14px;
-
         width: 100%;
+
+        gap: 12px;
     }
 
     .hero-buttons button {
         width: 100%;
-
         max-width: 320px;
 
-        min-height: 54px;
+        min-height: 52px;
 
         padding: 15px 20px;
     }
 }
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
+/*=========================================================
+                    SMALL MOBILE
+=========================================================*/
 
 @media (max-width: 480px) {
 
     .hero {
-        padding:
-            90px
-            16px
-            60px;
+        padding: 95px 16px 60px;
     }
 
     .hero-tag {
-        max-width: 100%;
-
-        padding: 9px 14px;
-
         font-size: 10px;
+
+        padding: 8px 13px;
 
         letter-spacing: 1px;
     }
@@ -420,68 +391,42 @@
 
         line-height: 1.15;
 
-        letter-spacing: -0.5px;
-
-        margin-bottom: 18px;
+        letter-spacing: -.7px;
     }
 
     .hero p {
-        font-size: 15.5px;
+        font-size: 15px;
 
         line-height: 1.65;
-
-        margin-bottom: 28px;
-    }
-
-    .hero-buttons {
-        gap: 12px;
     }
 
     .hero-buttons button {
-        width: 100%;
-
         max-width: 100%;
 
-        min-height: 52px;
-
-        padding: 14px 18px;
-
         font-size: 15px;
-
-        border-radius: 14px;
     }
 }
 
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
+/*=========================================================
+                    VERY SMALL MOBILE
+=========================================================*/
 
 @media (max-width: 360px) {
 
     .hero {
-        padding:
-            80px
-            14px
-            50px;
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
     .hero h1 {
         font-size: 30px;
-
-        letter-spacing: 0;
     }
 
     .hero p {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .hero-tag {
         font-size: 9px;
-
-        padding: 8px 12px;
-    }
-
-    .hero-buttons button {
-        font-size: 14px;
     }
 }
